@@ -1,3 +1,6 @@
+![build](https://github.com/pioz/plucker/workflows/Ruby/badge.svg)
+[![codecov](https://codecov.io/gh/pioz/plucker/graph/badge.svg?token=95G6SJXB47)](https://codecov.io/gh/pioz/plucker)
+
 # Plucker
 
 Plucker allows projecting records extracted from a query into an array of
