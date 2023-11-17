@@ -152,4 +152,12 @@ class TestPlucker < Minitest::Test
 
     assert_equal 'SQLite3::SQLException: no such column: age', error.message
   end
+
+  def test_invalid_plucker_argument
+    error = assert_raises RuntimeError do
+      Post.plucker(1)
+    end
+
+    assert_equal "Invalid plucker argument: '1'", error.message
+  end
 end
