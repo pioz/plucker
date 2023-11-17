@@ -33,6 +33,7 @@ GEM
       activerecord (>= 5.a)
       database_cleaner-core (~> 2.0.0)
     database_cleaner-core (2.0.1)
+    docile (1.4.0)
     drb (2.2.0)
       ruby2_keywords
     factory_bot (6.3.0)
@@ -78,6 +79,15 @@ GEM
       rubocop (~> 1.0)
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
+    simplecov (0.22.0)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-cobertura (2.1.0)
+      rexml
+      simplecov (~> 0.19)
+    simplecov-html (0.12.3)
+    simplecov_json_formatter (0.1.4)
     sqlite3 (1.6.8-arm64-darwin)
     sqlite3 (1.6.8-x86_64-linux)
     timeout (0.4.1)
@@ -90,12 +100,11 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  activerecord
   byebug
   database_cleaner-active_record
   factory_bot
   faker
-  minitest (~> 5.0)
+  minitest
   plucker!
   rake (~> 13.0)
   rubocop
@@ -103,6 +112,8 @@ DEPENDENCIES
   rubocop-minitest
   rubocop-performance
   rubocop-rake
+  simplecov
+  simplecov-cobertura
   sqlite3
 
 BUNDLED WITH
