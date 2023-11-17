@@ -12,48 +12,10 @@ module Plucker
 
   # :nodoc:
   module ClassMethods
-    # Plucker allows projecting a query into a specifically defined struct for
-    # the query. It takes an array of values to be selected from the database
-    # as arguments. Each element of the array can be specified in 3 different
-    # ways depending on the requirements: as a Symbol, as a String, or as a
-    # Hash. When using a symbol, the column with the corresponding name to
-    # the symbol from the 'from' table of the query is selected, and the
-    # struct field will have that name:
-    #
-    #   Post.plucker(:title).last
-    #   #<struct title="How to make pizza">
-    #
-    # When using the symbol `:all`, it is interpreted as a 'SELECT *'
-    # statement, selecting all columns from the specified table:
-    #
-    #   Post.plucker(:all).last
-    #   #<struct id=1, title="How to make pizza", author_id=1, created_at=Sat, 21 Oct 2023 14:24:08 UTC +00:00, updated_at=Sat, 21 Oct 2023 14:24:08 UTC +00:00>
-    #
-    # When using a string value, the name of the struct field will be
-    # generated using the `parameterize` function with an underscore as the
-    # separator:
-    #
-    #   Post.joins(:comments).plucker('posts.title', 'COUNT(comments.id)').last
-    #   #<struct posts_title="How to make pizza", count_comments_id=34>
-    #
-    # When using a Hash, it operates similarly to the String case, except that
-    # the name of the struct field will be the same as the key of the Hash:
-    #
-    #   Post.joins(:comments).plucker(:title, comments_count: 'COUNT(comments.id)').last
-    #   #<struct title="How to make pizza", comments_count=34>
-    #
-    # Plucker also takes an optional block, which is passed to the struct
-    # definition:
-    #
-    #   posts = Post.plucker(:title) do
-    #     def slug
-    #       self.title.parameterize
-    #     end
-    #   end
-    #   #<struct title="How to make pizza">
-    #   posts.first.slug
-    #   # 'how-to-make-pizza'
-    #
+    # Plucker allows projecting records extracted from a query into an array
+    # of specifically defined Ruby structs for the occasion. It is an
+    # enchanted `pluck`. It takes a list of values you want to extract and
+    # throws them into a custom array of Ruby struct.
     def plucker(*args, &block)
       scope = current_scope || self.all
       scope_table_name = scope.table.name
