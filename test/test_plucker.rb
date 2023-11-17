@@ -75,14 +75,15 @@ class TestPlucker < Minitest::Test
   def test_pluck_hash
     create(:post, title: 'How to make pizza', body: 'Anim ullamco.')
 
-    posts = Post.plucker(text: :body)
+    posts = Post.plucker(t: :title, text: 'posts.body')
 
     assert_equal 1, posts.size
     post = posts.first
 
     assert_kind_of Struct, post
+    assert_equal 'How to make pizza', post.t
     assert_equal 'Anim ullamco.', post.text
-    assert_equal ['Anim ullamco.'], post.to_a
+    assert_equal ['How to make pizza', 'Anim ullamco.'], post.to_a
     assert_raises NoMethodError do
       post.body
     end
@@ -159,5 +160,13 @@ class TestPlucker < Minitest::Test
     end
 
     assert_equal "Invalid plucker argument: '1'", error.message
+  end
+
+  def test_name_collision
+    error = assert_raises ArgumentError do
+      Author.plucker(:id, { id: 'authors.name' })
+    end
+
+    assert_equal 'duplicate member: id', error.message
   end
 end
