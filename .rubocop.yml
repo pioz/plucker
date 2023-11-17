@@ -1,4 +1,5 @@
 require:
+  - rubocop-factory_bot
   - rubocop-minitest
   - rubocop-performance
   - rubocop-rake
