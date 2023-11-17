@@ -1,0 +1,167 @@
+require:
+  - rubocop-minitest
+  - rubocop-performance
+  - rubocop-rake
+
+AllCops:
+  TargetRubyVersion: 2.6.0
+  NewCops: enable
+
+Layout/ArgumentAlignment:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/DotPosition:
+  EnforcedStyle: trailing
+
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/HashAlignment:
+  EnforcedHashRocketStyle: table
+
+# Layout/IndentationConsistency:
+#   EnforcedStyle: indented_internal_methods
+
+Layout/LineLength:
+  Enabled: false
+  Max: 120
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+
+Layout/ParameterAlignment:
+  EnforcedStyle: with_fixed_indentation
+
+Lint/NestedMethodDefinition:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/BlockLength:
+  Max: 100
+  Exclude:
+    - test/**/*.rb
+
+Metrics/BlockNesting:
+  Max: 3
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Max: 25
+
+Metrics/MethodLength:
+  Max: 100
+  Exclude:
+    - test/**/*.rb
+
+Metrics/ModuleLength:
+  Enabled: false
+
+Metrics/ParameterLists:
+  CountKeywordArgs: false
+  Exclude:
+    - test/**/*.rb
+
+Metrics/PerceivedComplexity:
+  Max: 25
+
+Minitest/AssertInDelta:
+  Enabled: false
+
+Naming/VariableNumber:
+  Enabled: false
+
+Performance/Casecmp:
+  Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
+
+# Style/BlockDelimiters:
+#   Enabled: false
+
+Style/ClassVars:
+  Enabled: false
+
+# Style/CombinableLoops:
+#   Enabled: false
+
+# Style/ConditionalAssignment:
+#   Enabled: false
+
+Style/Documentation:
+  Enabled: true
+
+Style/DocumentationMethod:
+  Enabled: true
+  Exclude:
+    - test/**/*
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
+Style/FormatStringToken:
+  EnforcedStyle: template
+
+# Style/GuardClause:
+#   Enabled: false
+
+Style/HashSyntax:
+  EnforcedShorthandSyntax: either
+
+# Style/IfUnlessModifier:
+#   Enabled: false
+
+Style/Lambda:
+  EnforcedStyle: literal
+
+# Style/MethodDefParentheses:
+#   Enabled: false
+
+# Style/NegatedIf:
+#   Enabled: false
+
+# Style/Next:
+#   Enabled: false
+
+# Style/NumericPredicate:
+#   Enabled: false
+
+# Style/OpenStructUse:
+#   Enabled: false
+
+Style/RaiseArgs:
+  EnforcedStyle: compact
+
+Style/RedundantReturn:
+  Enabled: false
+
+Style/RedundantSelf:
+  Enabled: false
+
+Style/RegexpLiteral:
+  AllowInnerSlashes: true
+
+# Style/RescueModifier:
+#   Enabled: false
+
+# Style/SafeNavigation:
+#   Enabled: true
+
+Style/SingleLineMethods:
+  Enabled: false
+
+Style/StringConcatenation:
+  Mode: conservative
+
+# Style/SymbolArray:
+#   Enabled: false
