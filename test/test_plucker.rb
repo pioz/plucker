@@ -27,7 +27,7 @@ class TestPlucker < Minitest::Test
     time = Time.parse('2023-11-21 00:00:00 UTC')
     create(:author, id: 1, name: 'Henry', created_at: time, updated_at: time)
 
-    authors = Author.plucker(:all)
+    authors = Author.plucker(:*)
 
     assert_equal 1, authors.size
     author = authors.first

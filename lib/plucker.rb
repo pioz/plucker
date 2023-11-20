@@ -24,7 +24,7 @@ module Plucker
       args.each do |value|
         case value
         when Symbol
-          if value.in?(%i[all *])
+          if value == :*
             scope_table_name.classify.constantize.columns.map do |column|
               columns << column.name
               alias_names << column.name.to_sym

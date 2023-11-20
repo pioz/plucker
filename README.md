@@ -107,11 +107,11 @@ post = Post.joins(:author).plucker(:title, :name).last
 #<struct title="How to make pizza", name="Henry">
 ```
 
-When using the symbol `:all` or `:*`, it is interpreted as `SELECT *`
-statement, selecting all columns from the specified table:
+When using the symbol `:*`, it is interpreted as `SELECT *` statement,
+selecting all columns from the specified table:
 
 ```ruby
-post = Post.plucker(:all).last
+post = Post.plucker(:*).last
 #<struct id=1, title="How to make pizza", author_id=1, created_at=Sat, 21 Oct 2023 14:24:08 UTC +00:00, updated_at=Sat, 21 Oct 2023 14:24:08 UTC +00:00>
 ```
 
